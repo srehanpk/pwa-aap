@@ -18,6 +18,8 @@ var urlsToCache = [
   "/favicon.ico",
   "/sw.js",
   "/manifest.json",
+  "/sockjs-node",
+  "/logo192.png",
 ];
 
 self.addEventListener('install', function(event) {
