@@ -21,6 +21,7 @@ var urlsToCache = [
   "/sockjs-node",
   "/logo192.png",
   
+  
 ];
 
 self.addEventListener('install', function(event) {
@@ -45,7 +46,7 @@ self.addEventListener('fetch', function(event) {
 
 
 
- 
+
  self.addEventListener('fetch', event => {
   event.respondWith(
     caches.open(cacheData)
