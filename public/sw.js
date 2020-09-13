@@ -40,19 +40,36 @@ self.addEventListener('install', function(event) {
   );
 });
 
+
+
 self.addEventListener('fetch', function(event) {
-  console.log(event.request.url);
- });
-
-
-
-
- self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.open(cacheData)
-      .then(cache => cache.match(event.request, {ignoreSearch: true}))
-      .then(response => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
   );
 });
+
+
+// self.addEventListener('fetch', function(event) {
+//   console.log(event.request.url);
+//  });
+
+
+
+
+//  self.addEventListener('fetch', event => {
+//   event.respondWith(
+//     caches.open(cacheData)
+//       .then(cache => cache.match(event.request, {ignoreSearch: true}))
+//       .then(response => {
+//       return response || fetch(event.request);
+//     })
+//   );
+// });
