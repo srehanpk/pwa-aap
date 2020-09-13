@@ -20,6 +20,7 @@ var urlsToCache = [
   "/manifest.json",
   "/sockjs-node",
   "/logo192.png",
+  
 ];
 
 self.addEventListener('install', function(event) {
